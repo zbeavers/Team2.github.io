@@ -1,0 +1,275 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WSO2 Identity Server</title>
+
+        <link rel="icon" href="images/favicon.png" type="image/x-icon"/>
+        <link href="libs/bootstrap_3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/Roboto.css" rel="stylesheet">
+        <link href="css/custom-common.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+
+        
+
+        <script>
+            function checkSessionKey() {
+                        $.ajax({
+                            type: "GET",
+                            url: "../logincontext?sessionDataKey=" + getParameterByName("sessionDataKey") + "&relyingParty=" + getParameterByName("relyingParty") + "&tenantDomain=" + getParameterByName("tenantDomain"),
+                            success: function (data) {
+                                if (data && data.status == 'redirect' && data.redirectUrl && data.redirectUrl.length > 0) {
+                                    window.location.href = data.redirectUrl;
+                                }
+                            }
+                        });
+                    }
+
+
+            function getParameterByName(name, url) {
+                     if (!url) {
+                        url = window.location.href;
+                     }
+                     name = name.replace(/[\[\]]/g, '\\$&');
+                     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                     results = regex.exec(url);
+                     if (!results) return null;
+                     if (!results[2]) return "";
+                     return decodeURIComponent(results[2].replace(/\+/g, ' '));
+                 }
+        </script>
+
+    </head>
+
+    <body onload="checkSessionKey()">
+
+    <!-- header -->
+    <header class="header header-default">
+        <div class="container-fluid"><br></div>
+        <div class="container-fluid">
+            <div class="pull-left brand float-remove-xs text-center-xs">
+                <a href="#">
+<!--PVAMU 
+	    <img src="images/logo-inverse.svg" alt="wso2" title="wso2" class="logo">   -->
+
+<img src="https://www.pvamu.edu/wp-content/uploads/2017/10/mob-logo.png" alt="PVAMU Home" class="fusion-logo-2x fusion-mobile-logo-2x" title="wso2">
+<!--PVAMU
+                    <h1><em>Identity Server</em></h1>  -->
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- page content -->
+    <div class="container-fluid body-wrapper">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <!-- content -->
+                <div class="container col-xs-10 col-sm-6 col-md-6 col-lg-3 col-centered wr-content wr-login col-centered">
+                    <div>
+                        <h2 class="wr-title uppercase blue-bg padding-double white boarder-bottom-blue
+                        margin-none">Sign In</h2>
+                    </div>
+                    <div class="boarder-all ">
+                        <div class="clearfix"></div>
+                        <div class="padding-double login-form">
+                            
+
+                            
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="../commonauth" method="post" id="loginForm">
+
+    
+
+    
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+        <input id="username" name="username" type="text" class="form-control" tabindex="0"
+               placeholder="User Name">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+        <input id="password" name="password" type="password" class="form-control"
+               placeholder="Password"
+               autocomplete="off">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+        <input type="hidden" name="sessionDataKey" value='89badf02-f05b-450f-a4b1-bfbb549b4167'/>
+    </div>
+    
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="chkRemember" name="chkRemember">
+                Remember me on this computer
+
+<!--PVAMU -->
+<br></br>
+<p><B>Warning!</B> Unauthorized use of this system is prohibited. There can be no 
+ expectation of privacy except as provided by privacy laws. Usage may be subject 
+ to security testing and monitoring. Misuse is subject to criminal prosecution.
+</p>
+<p><a href="https://mypassword.pvamu.edu">Click here to reset your password</a></p>
+<!--END PVAMU -->
+
+            </label>
+        </div>
+        <br>
+
+        <div class="form-actions">
+            <button
+                    class="wr-btn grey-bg col-xs-12 col-md-12 col-lg-12 uppercase font-extra-large"
+                    type="submit">
+                    Sign In
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+        
+        <br/>
+        
+    </div>
+
+    <div class="clearfix"></div>
+</form>
+
+                            
+
+                            
+
+                            
+                            
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <!-- /content -->
+
+                </div>
+            </div>
+            <!-- /content/body -->
+
+        </div>
+    </div>
+
+    <!-- footer -->
+<!--PVAMU 
+    <footer class="footer">
+        <div class="container-fluid">
+            <p>WSO2 Identity Server | &copy;
+                <script>document.write(new Date().getFullYear());</script>
+                <a href="http://wso2.com/" target="_blank"><i class="icon fw fw-wso2"></i> Inc</a>. All Rights Reserved.
+            </p>
+-->
+        </div>
+    </footer>
+
+<!--END PVAMU -->
+    <script src="libs/jquery_1.11.3/jquery-1.11.3.js"></script>
+    <script src="libs/bootstrap_3.3.5/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.main-link').click(function () {
+                $('.main-link').next().hide();
+                $(this).next().toggle('fast');
+                var w = $(document).width();
+                var h = $(document).height();
+                $('.overlay').css("width", w + "px").css("height", h + "px").show();
+            });
+            $('[data-toggle="popover"]').popover();
+            $('.overlay').click(function () {
+                $(this).hide();
+                $('.main-link').next().hide();
+            });
+
+            
+        });
+        function myFunction(key, value, name) {
+            var object = document.getElementById(name);
+            var domain = object.value;
+
+
+            if (domain != "") {
+                document.location = "../commonauth?idp=" + key + "&authenticator=" + value +
+                        "&sessionDataKey=89badf02-f05b-450f-a4b1-bfbb549b4167&domain=" +
+                        domain;
+            } else {
+                document.location = "../commonauth?idp=" + key + "&authenticator=" + value +
+                        "&sessionDataKey=89badf02-f05b-450f-a4b1-bfbb549b4167";
+            }
+        }
+
+        function handleNoDomain(key, value) {
+            document.location = "../commonauth?idp=" + key + "&authenticator=" + value +
+                    "&sessionDataKey=89badf02-f05b-450f-a4b1-bfbb549b4167";
+        }
+
+        $('#popover').popover({
+            html: true,
+            title: function () {
+                return $("#popover-head").html();
+            },
+            content: function () {
+                return $("#popover-content").html();
+            }
+        });
+        window.onunload = function(){};
+    </script>
+
+    </body>
+    </html>
+
+
+
+
